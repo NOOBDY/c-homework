@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-typedef struct s_plan{
+typedef struct {
     float base;
     float internal_call;
     float external_call;
@@ -14,9 +14,9 @@ float calculate_plan(Plan plan, Plan rate) {
     int i;
     float sum = 0.0;
 
-    for (i = 1; i < 6; i++) {
-        sum += ((float *)&plan)[i] * ((float *)&rate)[i];
-    }
+    for (i = 1; i < 6; i++)
+        sum += ((float *)&plan)[i] * ((float *)&rate)[i]; /* What on earth have I created */
+
 
     return sum;
 }
