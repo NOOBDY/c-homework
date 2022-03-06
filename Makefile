@@ -1,5 +1,9 @@
-build $(n).c:
-	clang $(n).c -g -std=c11 -pedantic -lm -fno-builtin -Wall -o $(n)
+CC = clang
+CFLAGS = -g -std=c89 -pedantic -fno-builtin -Wall
+LDFLAGS = -lm
 
-clean $(n):
-	rm $(n)
+build $(target).c:
+	$(CC) $(target).c $(CFLAGS) $(LDFLAGS) -o $(target)
+
+clean $(target):
+	rm $(target)
