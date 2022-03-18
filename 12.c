@@ -5,23 +5,12 @@ typedef struct {
     int denominator;
 } Fraction;
 
-void get_frac(Fraction *n) {
-    scanf("%d", &(n->numerator));
-    getchar();
-    scanf("%d", &(n->denominator));
-    getchar();
-}
-
 int abs(int n) {
     return n >= 0 ? n : -n;
 }
 
-void print_frac(Fraction n) {
-    int temp, n1, n2;
-
-    /* find GCD */
-    n1 = n.numerator;
-    n2 = n.denominator;
+int GCD(int n1, int n2) {
+    int temp;
 
     while (n2 != 0) {
         temp = n1 % n2;
@@ -29,8 +18,18 @@ void print_frac(Fraction n) {
         n2 = temp;
     }
 
-    n.numerator /= n1;
-    n.denominator /= n1;
+    return n1;
+}
+
+void get_frac(Fraction *n) {
+    scanf("%d/%d\n", &n->numerator, &n->denominator);
+}
+
+void print_frac(Fraction n) {
+    int gcd = GCD(n.numerator, n.denominator);
+
+    n.numerator /= gcd;
+    n.denominator /= gcd;
 
     n.numerator = (n.numerator * n.denominator) / abs(n.denominator);
     n.denominator = abs(n.denominator);
