@@ -5,10 +5,9 @@ void binary_to_gray_code(int digits, int n) {
 
     gray_code = n ^ (n >> 1);
 
-    for (i = 0; i < digits; i++) {
-        printf("%d", (gray_code & (1 << (digits - 1))) ? 1 : 0);
-        gray_code <<= 1;
-    }
+    for (i = digits - 1; i >= 0; i++)
+        printf("%d", (gray_code & (1 << i)) ? 1 : 0);
+
 
     printf("\n");
 }
