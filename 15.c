@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-
 #define SIZE 80
 
 void input(int *arr) {
@@ -65,7 +64,7 @@ void mul(const int *a, const int *b, int *ans) {
 
     for (i = 0; i < SIZE; i++) {
         carry = 0;
-        
+
         for (j = SIZE - 1; j >= 0; j--) {
             printf("%d %d\n", i, j);
             ans[j - i] += (a[j] * b[SIZE - 1 - i] + carry) % 10;
