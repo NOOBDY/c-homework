@@ -96,6 +96,16 @@ void list_len(Person **head_ref) {
     printf("%d\n", count);
 }
 
+void delete_all(Person **head_ref) {
+    Person *tmp;
+
+    while (*head_ref) {
+        tmp = *head_ref;
+        *head_ref = (*head_ref)->next;
+        free(tmp);
+    }
+}
+
 int main() {
     int op = 0;
 
@@ -122,6 +132,8 @@ int main() {
                 break;
         }
     }
+
+    delete_all(&stack);
 
     return 0;
 }
